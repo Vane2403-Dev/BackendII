@@ -1,4 +1,6 @@
-# Proyecto de Autenticación y Autorización con Passport y JWT
+
+
+# Primera Entrega Autenticación y Autorización con Passport y JWT
 
 ## Descripción
 Este proyecto implementa un sistema de autenticación y autorización de usuarios utilizando Node.js, Express, Passport y JSON Web Tokens (JWT). Se ha desarrollado un modelo de usuario seguro con encriptación de contraseña y estrategias de autenticación mediante Passport.
