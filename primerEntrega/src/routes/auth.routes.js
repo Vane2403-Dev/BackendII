@@ -34,7 +34,7 @@ router.post("/login", passportCall("login"), async (req, res) => {
 
   
 
-  router.post("/register", passport.authenticate("register"), async (req, res) => {
+  router.post("/register", passportCall("register"), async (req, res) => {
   try {
     res.status(201).json ({mensage: "usuario Registrado"})
   } catch (error) {

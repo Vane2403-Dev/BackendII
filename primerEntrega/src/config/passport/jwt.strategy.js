@@ -1,6 +1,8 @@
 import passport from "passport";
 import { Strategy, ExtractJwt } from "passport-jwt";
 import envsConfig from "../../config/env.config.js";
+import { userDao } from "../../persistence/mongo/dao/user.dao.js";
+
 
 
 const cookieExtractor = (req) =>    {
@@ -8,7 +10,7 @@ const cookieExtractor = (req) =>    {
     if(req && req.cookies) {
         token = req.cookies.token;
     } 
-    console.log( `token recibido: ${token}`);
+   //// console.log( `token recibido: ${token}`);
     return token;
 };
 
@@ -19,9 +21,10 @@ const jwtOptions = {
 
   const jwtStrategy = new Strategy (jwtOptions,async (payload, done) => {
     try{
-    console.log(`payload: ${payload}`);
+    ////console.log(`payload: ${payload}`);
     if (payload) {
-        return done(null, payload);
+        const user = await userDao.getOne({email: payload.email});
+        return done(null, user);
     }
     return done(null, false);
 
