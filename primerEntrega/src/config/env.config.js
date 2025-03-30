@@ -2,6 +2,7 @@
 export default {
   PORT: process.env.PORT || 4000,
   MONGO_URL: process.env.MONGO_URL || 'mongodb://localhost/e-commerce',
+  MONGO_ATLAS: process.env.MONGO_ATLAS ||  'mongodb://localhost/e-commerce',
   SESSION_SECRET: process.env.SESSION_SECRET || "secret",
   JWT_SECRET: process.env.JWT_SECRET || "secret"
 }
