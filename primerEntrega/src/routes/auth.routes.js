@@ -9,6 +9,8 @@ import passport from "passport";
 import { passportCall } from "../middlewares/passportCall.middleware.js";
 import { validateSchema  } from "../middlewares/validateSchema.middleware.js";
 import { loginSchema } from "../schemas/login.schemas.js";
+import { registerSchema } from "../schemas/register.schema.js";
+
 
 
 
@@ -34,9 +36,7 @@ router.post("/login", validateSchema(loginSchema),passportCall("login"), async (
 });
 
 
-  
-
-  router.post("/register", passportCall("register"), async (req, res) => {
+  router.post("/register", validateSchema(registerSchema), passportCall("register"), async (req, res) => {
   try {
     res.status(201).json ({mensage: "usuario Registrado"})
   } catch (error) {
