@@ -46,7 +46,7 @@ router.post("/login", validateSchema(loginSchema),passportCall("login"), async (
   
   });
     
-  router.get("/sessions/current", passportCall("jwt"), authRole(["admin", "user"]), async (req, res) => {
+  router.get("/current", passportCall("jwt"), authRole(["admin", "user"]), async (req, res) => {
     try {
       res.status(200).json({ user: req.user });
     } catch (error) {
