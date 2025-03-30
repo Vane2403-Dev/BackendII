@@ -7,6 +7,8 @@ import { createToken } from "../utils/jwt.js";
 //import { checkTokenCookie } from "../middlewares/checkTokenCookie.middleware.js";
 import passport from "passport";
 import { passportCall } from "../middlewares/passportCall.middleware.js";
+import { validateSchema  } from "../middlewares/validateSchema.middleware.js";
+import { loginSchema } from "../schemas/login.schemas.js";
 
 
 
@@ -14,7 +16,7 @@ import { passportCall } from "../middlewares/passportCall.middleware.js";
 
 const router = Router();
 
-router.post("/login", passportCall("login"), async (req, res) => {
+router.post("/login", validateSchema(loginSchema),passportCall("login"), async (req, res) => {
   try {
     const tokenData = {
       id: req.user._id,
@@ -44,7 +46,7 @@ router.post("/login", passportCall("login"), async (req, res) => {
   
   });
     
-  router.get("/profile", passportCall("jwt"), authRole(["admin", "user"]), async (req, res) => {
+  router.get("/sessions/current", passportCall("jwt"), authRole(["admin", "user"]), async (req, res) => {
     try {
       res.status(200).json({ user: req.user });
     } catch (error) {
