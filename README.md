@@ -38,7 +38,7 @@ Este proyecto implementa un sistema de autenticación y autorización de usuario
    ```env
   PORT=8080
   MONGO_URL="mongodb://localhost:27017/test"
-  MONGO_ATLAS "mongodb+srv://vcp2403:<CONTRASEÑA>Cluster0.1esd5.mongodb.net/e-commerce?authSource=admin"
+  MONGO_ATLAS "mongodb+srv://.mongodb.net/e-commerce"
   SESSION_SECRET=
   JWT_SECRET="
    ```
