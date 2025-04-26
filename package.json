@@ -4,9 +4,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch --env-file=.env.development ./primerEntrega/src/app",
-    "test": "node --watch --env-file=.env.test ./primerEntrega/src/app",
-    "prod": "node --watch --env-file=.env.production ./primerEntrega/src/app"
+    "dev": "node --watch --env-file=.env.development ./proyectoFinal/src/app",
+    "test": "node --watch --env-file=.env.test ./proyectoFinal/src/app",
+    "prod": "node --watch --env-file=.env.production ./proyectoFinal/src/app"
   },
   "author": "",
   "license": "ISC",
