@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch --env-file=.env.development ./proyectoFinal/src/app",
+    "debug": "node --watch --env-file=.env.development ./proyectoFinal/src/app",
     "test": "node --watch --env-file=.env.test ./proyectoFinal/src/app",
     "prod": "node --watch --env-file=.env.production ./proyectoFinal/src/app"
   },
