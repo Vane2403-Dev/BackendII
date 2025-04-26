@@ -16,6 +16,5 @@ export const editProductSchema = {
     }),
    // query: z.object({
      // name: z.string().min(5),
-      //price: z.string()
-    })
+      //price: z.string() })
   };
