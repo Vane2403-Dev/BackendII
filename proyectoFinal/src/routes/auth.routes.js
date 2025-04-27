@@ -11,6 +11,8 @@ import { validateSchema  } from "../middlewares/validateSchema.middleware.js";
 import { loginSchema } from "../schemas/login.schemas.js";
 import { registerSchema } from "../schemas/register.schema.js";
 import { UserResponseDto } from "../dto/userResponse.dto.js";
+import {  welcomeUserTemplate } from "../email/templates/welcome.template.js";
+import { sendEmail } from "../email/sendEmail.js";
 
 
 
@@ -38,7 +40,9 @@ router.post("/login", validateSchema(loginSchema),passportCall("login"), async (
 
 
   router.post("/register", validateSchema(registerSchema), passportCall("register"), async (req, res) => {
-  try {
+  try 
+  {const template = welcomeUserTemplate(`${req.user.first_name} ${req.user.last_name}`, req.user.email);
+  await sendEmail(template, "Usuario registrado", req.user.email);
     res.status(201).json ({mensage: "usuario Registrado"})
   } catch (error) {
     console.log(error);

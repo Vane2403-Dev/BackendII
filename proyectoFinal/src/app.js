@@ -10,6 +10,7 @@ import { welcomeUserTemplate } from "./email/templates/welcome.template.js";
 
 
 
+
 const app = express();
 
 connectMongoDB();

@@ -101,6 +101,9 @@ class CartControllers {
     
           const total = await cartServices.purchaseCart(cid);
           const ticket = await ticketService.createTicket(total, req.user.email);
+         
+          const template = (`${req.user.first_name} ${req.user.last_name}`, req.user.email);
+            await sendEmail(template, "Usuario registrado", req.user.email);
     
           res.status(200).json({ status: "ok", ticket });
         } catch (error) {

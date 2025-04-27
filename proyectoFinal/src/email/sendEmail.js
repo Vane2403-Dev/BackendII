@@ -1,6 +1,6 @@
 
 import nodemailer from "nodemailer";
-import envsConfig from "../config/envs.config.js";
+import envsConfig from "../config/env.config.js";
 
 export const sendEmail = async (template, subject, email) => {
   const transport = nodemailer.createTransport({
@@ -16,7 +16,7 @@ export const sendEmail = async (template, subject, email) => {
 
   await transport.sendMail({
     from: "vcp2403@gmail.com",
-    to: email,
+    to: "vcp2403@gmail.com",
     subject: subject,
     html:template,
     // attachments:[
