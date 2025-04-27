@@ -16,7 +16,7 @@ export const sendEmail = async (template, subject, email) => {
 
   await transport.sendMail({
     from: "vcp2403@gmail.com",
-    to: "vcp2403@gmail.com",
+    to: email,
     subject: subject,
     html:template,
 
