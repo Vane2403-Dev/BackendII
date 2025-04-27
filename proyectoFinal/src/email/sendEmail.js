@@ -19,12 +19,6 @@ export const sendEmail = async (template, subject, email) => {
     to: "vcp2403@gmail.com",
     subject: subject,
     html:template,
-    // attachments:[
-    //   {
-    //     filename: "gatito.jpg",
-    //     path:"public/images/gatito.jpg",
-    //     cid: "gatito"
-    //   }
-    // ]
+
   })
 }
