@@ -5,7 +5,7 @@ import routes from "./routes/index.js";
 import envsConfig from "./config/env.config.js";
 import cookieParser from "cookie-parser";
 import passport from "./config/passport/passport.config.js";
-import cors from "cors";
+
 
 
 const app = express();
@@ -29,7 +29,7 @@ app.use(
     cookie: { secure: false, maxAge: 500000 }, // Debe estar en true si usas HTTPS
   })
 );
-app.use(cors());
+
 
 app.use(cookieParser());
 
