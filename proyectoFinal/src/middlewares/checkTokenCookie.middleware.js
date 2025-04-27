@@ -1,4 +1,4 @@
-import { userDao } from "../persistence/mongo/dao/user.dao.js";
+import { userServices} from "../services/user.services.js";
 import { verifyToken } from "../utils/jwt.js";
 
 export const checkTokenCookie = async (req, res, next) => {
@@ -7,7 +7,7 @@ export const checkTokenCookie = async (req, res, next) => {
     if (!token) return res.status(401).json({ message: "No se provee el token" });
 
     const decoded = verifyToken(token);
-    const user = await userDao.getOne({ _id: decoded._id });
+    const user = await userServices.getOne({ _id: decoded._id });
     if (!user) return res.status(401).json({ message: "Usuario no encontrado" });
 
     // Agregamos a la request el usuario

@@ -10,6 +10,7 @@ import { passportCall } from "../middlewares/passportCall.middleware.js";
 import { validateSchema  } from "../middlewares/validateSchema.middleware.js";
 import { loginSchema } from "../schemas/login.schemas.js";
 import { registerSchema } from "../schemas/register.schema.js";
+import { UserResponseDto } from "../dto/userResponse.dto.js";
 
 
 
@@ -45,15 +46,15 @@ router.post("/login", validateSchema(loginSchema),passportCall("login"), async (
   }
   
   });
-    
-  router.get("/current", passportCall("jwt"), authRole(["admin", "user"]), async (req, res) => {
+  router.get("/profile", passportCall("jwt"), authRole(["admin", "user"]), async (req, res) => {
     try {
-      res.status(200).json({ user: req.user });
+      const userDto = new UserResponseDto(req.user);
+      res.status(200).json({ user: userDto });
     } catch (error) {
       res.status(500).json({ status: "error", message: "Internal Server Error" });
     }
   });
-
+  
 router.get("/logout", async (req, res) => {
   try {
     req.session.destroy();

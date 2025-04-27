@@ -1,7 +1,7 @@
 import passport from "passport";
 import { Strategy, ExtractJwt } from "passport-jwt";
 import envsConfig from "../../config/env.config.js";
-import { userDao } from "../../persistence/mongo/dao/user.dao.js";
+import { userServices } from "../../services/user.services.js";
 
 
 
@@ -23,7 +23,7 @@ const jwtOptions = {
     try{
     ////console.log(`payload: ${payload}`);
     if (payload) {
-        const user = await userDao.getOne({email: payload.email});
+        const user = await userServices.getOne({email: payload.email});
         return done(null, user);
     }
     return done(null, false);

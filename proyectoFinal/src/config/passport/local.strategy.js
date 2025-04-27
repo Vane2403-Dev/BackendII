@@ -13,6 +13,7 @@ const registerStetegy = new Strategy(
     const user = await userDao.getOne({email: username});
       if(user) return done(null, false, {message: "El email ya está registrado"});
       const newCart= await cartDao.create();
+      
       const newUser = {
         ...req.body,
         password:  hashPassword(password),
