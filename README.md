@@ -11,6 +11,8 @@ Este proyecto implementa un sistema de autenticación y autorización de usuario
 - Passport.js
 - bcrypt.js
 - JSON Web Tokens (JWT)
+- Nodemailer
+- zod
 
 ## Características Principales
 ### 1. Modelo de Usuario y Encriptación de Contraseña
@@ -33,6 +35,15 @@ Este proyecto implementa un sistema de autenticación y autorización de usuario
 - que devuelve los datos del usuario autenticado mediante el token JWT.
 - Manejador de errores para tokens inválidos o inexistentes.
 - Validación precisa y segura del usuario autenticado.
+### 5. Arquitectura en Capas
+Capa | Función
+Routers | Definen las rutas y las asociás a middlewares + controladores.
+Middlewares | Validan datos, autentican usuarios, manejan permisos.
+Controladores | Manejan las peticiones, responden a la API, capturan errores.
+Negocios (services) | Lógica de negocio: validaciones complejas, procesos.
+DAO | Acceso a base de datos, consultas CRUD.
+Models | Definición de estructuras de datos (MongoDB/Mongoose).
+
 
 ## CONFIGURACION
 
@@ -43,6 +54,7 @@ Este proyecto implementa un sistema de autenticación y autorización de usuario
   MONGO_ATLAS "mongodb+srv://.mongodb.net/e-commerce"
   SESSION_SECRET=
   JWT_SECRET="
+  GMAIL_PASS
    ```
 
 
