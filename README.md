@@ -77,7 +77,7 @@ Este proyecto implementa un sistema de autenticación y autorización de usuario
 ## Uso
 - **Registro de Usuario:** `POST /api/auth/register`
 - **Login de Usuario:** `POST /api/auth/login`
-- **Obtener Datos del Usuario Autenticado:** `GET /api/auth/current`
+- **Obtener Datos del Usuario Autenticado:** `GET /api/auth/profile`
 
 
 ---
