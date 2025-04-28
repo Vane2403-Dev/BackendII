@@ -36,13 +36,29 @@ Este proyecto implementa un sistema de autenticación y autorización de usuario
 - Manejador de errores para tokens inválidos o inexistentes.
 - Validación precisa y segura del usuario autenticado.
 ### 5. Arquitectura en Capas
-Capa | Función
-Routers | Definen las rutas y las asociás a middlewares + controladores.
-Middlewares | Validan datos, autentican usuarios, manejan permisos.
-Controladores | Manejan las peticiones, responden a la API, capturan errores.
-Negocios (services) | Lógica de negocio: validaciones complejas, procesos.
-DAO | Acceso a base de datos, consultas CRUD.
-Models | Definición de estructuras de datos (MongoDB/Mongoose).
+# Arquitectura de la Aplicación
+
+## Descripción de capas
+
+| **Capa**          | **Función**                                                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| **Routers**       | Definen las rutas y las asociás a middlewares + controladores.              |
+| **Middlewares**   | Validan datos, autentican usuarios, manejan permisos.                       |
+| **Controladores** | Manejan las peticiones, responden a la API, capturan errores.               |
+| **Negocios (services)** | Lógica de negocio: validaciones complejas, procesos.                  |
+| **DAO**           | Acceso a base de datos, consultas CRUD.                                     |
+| **Models**        | Definición de estructuras de datos (MongoDB/Mongoose).                       |
+
+## Flujo de la Request
+
+1. **Routers**: Definen las rutas, aplican middlewares y llaman a los controladores.
+2. **Middlewares**: Ejecutan validaciones, autenticación y manipulan la request.
+3. **Controladores**: Procesan la request y responden con los resultados, pasando la lógica al servicio adecuado.
+4. **Negocios (services)**: Aplica las reglas de negocio antes de interactuar con la base de datos.
+5. **DAO**: Realiza operaciones CRUD sobre la base de datos.
+6. **Models**: Estructura los datos utilizando Mongoose u otro ORM.
+
+
 
 
 ## CONFIGURACION
